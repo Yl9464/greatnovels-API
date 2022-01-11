@@ -26,5 +26,6 @@ module.exports = {
   Authors,
   Genres,
   Novels,
-  NovelsGenres
+  NovelsGenres,
+  Op: Sequelize.Op
 }
