@@ -3,9 +3,13 @@ const AuthorsModel = require('./authors')
 const GenresModel = require('./genres')
 const NovelsModel = require('./novels')
 const NovelsGenresModel = require('./novelsGenres.js')
+const allConfigs = require('../configs/sequelize')
 
-const connection = new Sequelize('novels', 'novels', 'N0v3L$!', {
-  host: 'localhost', dialect: 'mysql',
+const environment = process.env.NODE_ENV || 'development'
+const config = allConfigs[environment]
+
+const connection = new Sequelize(config.database, config.username, config.password, {
+  host: config.host, dialect: config.dialect,
 })
 const Authors = AuthorsModel(connection, Sequelize)
 const Genres = GenresModel(connection, Sequelize)
