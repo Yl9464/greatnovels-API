@@ -10,7 +10,7 @@ const getAllGenres = async (request, response) => {
 const getAllNovelInfoByGenreId = async (request, response) => {
   const { id } = request.params
 
-  const genreId = await models.Authors.findOne({
+  const genreId = await models.Genres.findOne({
     where: { id },
     include: [{
       model: models.Novels,
